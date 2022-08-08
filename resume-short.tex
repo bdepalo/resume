@@ -624,32 +624,37 @@
 	{06/2021 - Current}
 	{Software Engineer for Transportation Safety}
 	{MITRE}
-	{Aberdeen, MD}
-    {Working on various software projects supporting the FAA in its goal to increase aviation safety.}
+	{Aberdeen, MD (Hybrid)}
+    {Working on various software projects increasing aviation safety.}
 	{
 		{\cvproject
 			{IFP, Operations, and Analytics (IOAA) Tool}
 			{
-				\item Refactored existing Java codebase to use Gradle and proper object oriented design patterns for
-				extendability and reusability. Implemented unit testing
-				\item Containerized existing JavaScript frontend and refactored Java backend
-				\item Working on transitioning legacy frontend from deprecated tools and frameworks such as Bower and AngularJS
-				\item Implemented automated continuous integration / continuous deployment pipeline using GitHub Actions
+				\item Upgraded Java codebase to use Gradle. Implemented JUnit testing.
+				\item Automated CI / CD pipeline using GitHub Actions, Concourse, Helm, and \newline Kubernetes.
+				\item Migrated runtime environment from a VM to cloud native microservices on AWS.
+				\item Migrating frontend from Bower / Grunt / AngularJS to NPM / Angular / React.
 			}
 		}
 		{\cvproject
 			{Voice Data Analysis Capability Tech Transition}
 			{
-				\item Adjusted Java codebase to allow for automated data processing
-				\item Containerized existing voice transcription capability
-				\item Implemented automated continuous integration / continuous deployment pipeline using Bamboo specs
-				\item Deployed and scaled in AWS to process data in the FAA Enterprise Information Management (EIM) system
+				\item Built a microservice REST API to interact voice transcription software.
+				\item Added a Kafka consumer to receive Avro messages with S3 locations of data to process.
+				\item Implemented a CI / CD pipeline using Bamboo to build Docker images stored in Nexus.
+				\item Deployed and scaled in AWS using EKS
 			}
 		}
 		{\cvproject
 			{FAA-Recognized Identification Area (FRIA) Analysis Tool}
 			{
-				\item Leading a project to automate analysis and report generation for received FRIA applications
+				\item Lead developer on a new project from the ground up.
+				\item Architected a Java software system to perform analysis on FAA-Recognized Identification Area
+				(FRIA) requests.
+				\item Developed a REST API using Spring / Spring-Boot
+				\item Led code reviews. Managed repositories and artifacts.
+				\item Working to retrieve data from various public / private sources in real time.
+				\item Working to programmatically generate a PDF report using LaTeX or PDFBox.
 			}
 		}
 	}
@@ -664,46 +669,35 @@
 	{Leidos}
 	{Edgewood, MD}
 	{Supported Army customer by designing and developing software to help the Chemical Biological Radiological
-		Nuclear (CBRN) Defense mission. Development done in Linux using IntelliJ IDEA and Android Studio.}
+		Nuclear (CBRN) Defense mission.}
 	{
 		{\cvproject
 			{Lead developer: Parrot}
 			{
-				\item Developed a set of scalable Java software modules intended to bridge the Common CBRN
-				(Chemical Biological Radiological Nuclear) Sensor Interface (CCSI) to the Integrated Sensor Architecture
-				(ISA)
-				\item Developed Parrot from an initial prototype application into a framework for integrating CBRN
-				sensors with ISA.
-				\item Also developed modules to allow ISA data to be displayed on various Common Operating Pictures
-				(COPs)
+				\item Developed a set of scalable Java software modules intended to bridge data standards.
+				\item Designed a Java framework to quickly integrate sensors to tactical networks.
+				\item Developed modules to display live data on various Common Operating Pictures.
 			}
 			}
 		{\newpage\cvproject
 			{UAV Autonomy Control Software / Flutter}
 			{
-				\item Modified old Python software to allow for autonomous control of a UAV by dropping a JSON file
+				\item Repurposed old Python code to autonomously control a UAV by dropping a JSON file
 				into a specified directory. Automated JSON file creation based on chemical hazard detections.
-				\item After successful demonstration, it was decided to mature the software. A new Parrot module was
-				developed to run directly on the UAV hardware (Raspberry Pi / Nvidia TX2). This allowed the ability
-				to add new and more complex capabilities, and control the UAV directly over ISA. A simple Java GUI
-				was developed to send more advanced UAV commands.
-				\item An ISA plugin to the Android Tactical Assault Kit (ATAK) was obtained and extended to allow for
-				UAV control over ISA from an Android device. Using feedback from field demonstrations, the application
-				has continually been improved.
-				\item Demonstrated capability on various quad / hex copters, including Military and COTS
+				\item Developed a Java module to run embedded on UAV hardware (Raspberry Pi / Nvidia TX2).
+				\item Developed a simple Java GUI command and control the UAV.
+				\item Extended an existing Android Tactical Assault Kit (ATAK) plugin to control UAVs from an Android
+				device.
 			}
 			}
 		{\cvproject
 			{Joint CBRNE Advanced Capability Sets}
 			{
-				\item Developed a set of software and hardware for soldiers to wear when investigating CBRN hazards.
-				\item Developed an Android application to display current sensor readings and send reports to
-				commanders and upper echelons.
-				\item Designed and manufactured a prototype hardware dongle to connect sensors to a Nett Warrior
-				phone. The dongle was 3D printed; the board was custom designed using geppetto, and then manufactured
-				by gumstix. Custom connectors were ordered and the dongle was assembled by hand.
-				\item The dongle ran a custom built Linux based Yocto OS
-				\item Added OS level rules to control the software based on what sensor was attached
+				\item Developed an Android application to display sensor readings and send reports.
+				\item Designed and manufactured a prototype hardware dongle using Solidworks and 3D printing.
+				\item Designed custom carrier board using Geppetto (manufactured by Gumstix).
+				\item Built and compiled a custom Linux OS using Yocto.
+				\item Added OS level rules to control the software behavior based on hardware events.
 			}
 		}
 	}
@@ -721,16 +715,15 @@
 		{\cvproject
 			{Rotation 1: System Security}
 			{
-				\item Worked with the Information Assurance team to support the quarterly system scans
-				\item Assisted the Anti-Tamper team to design system security architecture
+				\item Worked with the Information Assurance team to complete system scans.
+				\item Assisted Anti-Tamper team by designing system security architectures.
 			}
 			}
 		{\cvproject
 			{Rotation 2: Software}
 			{
-				\item Planned automation of the sensor operator position with software that would manipulate an existing
-				GUI. The program had funding terminated in the early stages.
-				\item Worked on a middleware software that would translate and send messages between two pieces of hardware.
+				\item Planned automation of operator position with C++ software.
+				\item Worked on a Java middleware to transfer data between two pieces of hardware.
 			}
 			}
 		{\cvproject
@@ -758,15 +751,14 @@
 				\item Worked with engineers to develop an accurate model of the issue.
 				\item Modified simulator FORTRAN code to use the model. Verified accuracy of model by running scenarios
 				from past missions.
-				\item The model was used to predict the effects of the issue out to 2025
 			}
 			}
 		{\cvproject
 			{FGS-2R2 Coarse Track Nutation Convergence Study}
 			{
 				\item Performed a study to determine functionality of one of the Fine Guidance Sensors on the Hubble
-				Space Telescope that was causing issues when locating stars.
-				\item Presented findings at the end of the first internship.
+				Space Telescope.
+				\item Presented findings to the Guide Star Acquisition Working Group.
 			}
 			}
 	}
