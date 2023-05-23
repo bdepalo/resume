@@ -335,42 +335,32 @@
 % param 2: Position
 % param 3: Employer
 % param 4: Location
-% param 5: Short description
-% param 6: Free Space - projects, general text, paragraphs, etc. (optional)
-% param 7: Technologies (optional)
-% param 8: Achievements (optional)
-\newcommand{\cvevent}[8] {
+% param 5: Free Space - projects, general text, paragraphs, etc. (optional)
+\newcommand{\cvevent}[5] {
 
 	% we wrap this part in a parbox, so title and description are not separated on a pagebreak
 	% if you need more control on page breaks, remove the parbox
 	\parbox{\mpwidth}{
+
+		% date box
 		\begin{tabular*}{1\mpwidth}{p{0.66\mpwidth}  r}
-	 		\textcolor{black}{\textbf{#2}} & \colorbox{accentcol}{\makebox[0.32\mpwidth]{\textcolor{white}{\textbf{#1}}}} \\
-			\textcolor{maincol}{#3} | \textcolor{maincol}{#4} & \\
+
+		% job information
+		\textcolor{black}{\textbf{#2}} & \colorbox{accentcol}{\makebox[0.32\mpwidth]{\textcolor{white}{\textbf{#1}}}} \\
+		\textcolor{maincol}{#3} | \textcolor{maincol}{#4} & \\
 
         \end{tabular*}
-	\vspace{6pt}
-		\cvtext{#5}
-	}
+		\vspace{6pt}
 
-	\ifthenelse{\isempty{#6}}{}{
-		{#6}
-	}
+		% list items
+		\cvtext{\cvlist{#5}}
 
-	\ifthenelse{\isempty{#7}}{}{
-		\cvtext{\textbf{Technologies:}}
-		\newline
-		\cvtext{#7}
-	}
+		\vspace{6pt}
 
-	\ifthenelse{\isempty{#8}}{}{
-		\cvtext{\textbf{Achievements:}}
-		\newline
-		\cvtext{#8}
+		% bottom bar
+		\textcolor{accentcol}{ \rule{0.66\textwidth}{1.5pt} }
+		\vspace{-4pt}
 	}
-	\vspace{6pt}
-	\textcolor{accentcol}{ \rule{0.66\textwidth}{1.5pt} }
-	\vspace{-4pt}
 }
 
 
@@ -391,6 +381,27 @@
 
 	\ifthenelse{\isempty{#3}}{}{
 		\cvtext{{ \textcolor{maincol} {#3} }}\\
+	}
+}
+
+% Renders a CV event on the sidebar
+% param 1: dates
+% param 2: degree
+% param 3: degree 2
+% param 4: college
+\newcommand{\cvmetaeventtwo}[4] {
+	\textcolor{maincol} { \cvtext{\textbf{\begin{flushleft}#1\end{flushleft}}}}
+
+	\ifthenelse{\isempty{#2}}{}{
+		\textcolor{black} {\cvtext{\textbf{#2}} }
+	}
+
+	\ifthenelse{\isempty{#3}}{}{
+		\textcolor{black} {\cvtext{\textbf{#3}} }
+	}
+
+	\ifthenelse{\isempty{#4}}{}{
+		\cvtext{{ \textcolor{maincol} {#4} }}\\
 	}
 }
 
@@ -474,11 +485,6 @@
 \begin{leftcolumn}
 
 %---------------------------------------------------------------------------------------
-%	IMAGE
-%----------------------------------------------------------------------------------------
-%\includegraphics[width=\linewidth]{resources/2f0}	%trimming relative to image size
-
-%---------------------------------------------------------------------------------------
 %	CONTACT
 %---------------------------------------------------------------------------------------
 \cvsectionleft{Contact}
@@ -487,24 +493,22 @@
 \icontext{MobilePhone}{16}{(732) 614--4078}{black}\\[6pt]
 \iconemail{Envelope}{16}{brandon.depalo@gmail.com}{brandon.depalo@gmail.com}{black}\\[6pt]
 \iconhref{Github}{16}{github.com/bdepalo}{https://www.github.com/bdepalo}{black}\\[-8pt]
-
+\vspace{-6pt}
 
 %---------------------------------------------------------------------------------------
 %	EDUCATION
 %---------------------------------------------------------------------------------------
 \cvsectionleft{Education}
 \vspace{-8pt}
-\cvmetaevent
-{08/2011 - 05/2015}
-{Computer Science (B.S.)}
-{University of Maryland, College Park}
-\cvmetaevent
+\cvmetaeventtwo
 {08/2011 - 05/2015}
 {Aerospace Engineering (B.S.)}
+{Computer Science (B.S.)}
 {University of Maryland, College Park}
 \newline
 \cvtext{GPA 3.73}
-\vspace{-2pt}
+\vspace{-4pt}
+
 %---------------------------------------------------------------------------------------
 %	LANGUAGES
 %---------------------------------------------------------------------------------------
@@ -512,62 +516,26 @@
 
 \cvskill{Java} {10+ yrs.} {1} \\[-2pt]
 
-\cvskill{Python} {3+ yrs.} {0.3} \\[-2pt]
+\cvskill{Python} {3+ yrs.} {0.6} \\[-2pt]
 
-\cvskill{HTML} {3+ yrs.} {0.3} \\[-2pt]
+\cvskill{JavaScript | TypeScript} {2+ yrs.} {0.4} \\[-2pt]
 
-\cvskill{C / C++} {2+ yrs.} {0.2} \\[-2pt]
-
-\cvskill{C\#} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{JavaScript / TypeScript} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{FORTRAN} {1 yr.} {0.1} \\[-2pt]
-
-\cvskill{SQL} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{Ruby} {1 yr.} {0.1} \\[-2pt]
-
-\cvskill{OCaml} {1 yrs} {0.1} \\[-2pt]
-
-\cvskill{Prolog} {1 yrs} {0.1} \\[-2pt]
-
-\newpage
+\cvskill{C | C++ | C\#} {2+ yrs.} {0.4} \\[-2pt]
+\vspace{-10pt}
 
 %---------------------------------------------------------------------------------------
 %	TECHNOLOGIES
 %---------------------------------------------------------------------------------------
 \cvsectionleft{Technologies}
 
-\textcolor{white}{\LARGE{\icon{Linux}{24}{white} \icon{Windows}{24}{white}}}
-
-\cvskill{JUnit} {10+ yrs.} {1} \\[-2pt]
-
-\cvskill{Spring / Spring-Boot} {6+ yrs.} {0.6} \\[-2pt]
-
-\cvskill{Gradle / Maven} {6+ yrs.} {0.6} \\[-2pt]
-
-\cvskill{Git} {6+ yrs.} {0.6} \\[-2pt]
-
-\cvskill{Docker / Docker-Compose} {3+ yrs.} {0.3} \\[-2pt]
-
-\cvskill{Jupyter / PySpark} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{React} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{Node.js} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{Webpack} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{Angular / AngularJS} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{AWS} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{Kubernetes / Helm} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{GitHub} {1+ yrs.} {0.1} \\[-2pt]
-
-\cvskill{Atlassian} {1+ yrs.} {0.1} \\[-2pt]
+\icontext{CaretRight}{12}{JUnit | Spring | Gradle | Maven}{black}\\[6pt]
+\icontext{CaretRight}{12}{Git | GitHub | GitLab | BitBucket}{black}\\[6pt]
+\icontext{CaretRight}{12}{Docker | Kubernetes | Helm}{black}\\[6pt]
+\icontext{CaretRight}{12}{React | Vue | Angular | AngularJS}{black}\\[6pt]
+\icontext{CaretRight}{12}{Node.js | Vite | Webpack}{black}\\[6pt]
+\icontext{CaretRight}{12}{AWS S3 | Lambda | RDS | EC2}{black}\\[6pt]
+\icontext{CaretRight}{12}{Jupyter | Spark | Kafka | SQL}{black}\\[6pt]
+\vspace{-18pt}
 
 %---------------------------------------------------------------------------------------
 %	CERTIFICATIONS
@@ -576,22 +544,16 @@
 
 \icontext{CaretRight}{12}{CDL Class B w/ Passenger \newline Endorsement}{black}\\[6pt]
 \icontext{CaretRight}{12}{Part 107 Certified Remote Pilot}{black}\\[6pt]
+\vspace{-20pt}
 
 %---------------------------------------------------------------------------------------
 %	INTERESTS
 %---------------------------------------------------------------------------------------
 \cvsectionleft{Interests}
 
-\icontext{CaretRight}{12}{Aviation}{black}\\[6pt]
+\icontext{CaretRight}{12}{Aviation | Transportation}{black}\\[6pt]
 \icontext{CaretRight}{12}{Big Data}{black}\\[6pt]
-\icontext{CaretRight}{12}{PC Gaming}{black}\\[6pt]
-\icontext{CaretRight}{12}{Cooking}{black}\\[6pt]
-\icontext{CaretRight}{12}{Cars}{black}\\[6pt]
-
-%---------------------------------------------------------------------------------------
-%	QR
-%---------------------------------------------------------------------------------------
-%\cvqrcode{0.3}
+\icontext{CaretRight}{12}{Gaming | Cooking | Sports}{black}\\[6pt]
 
 \end{leftcolumn}
 
@@ -607,9 +569,9 @@
 %---------------------------------------------------------------------------------------
 \fcolorbox{white}{accentcol}{\begin{minipage}[c][3.5cm][c]{1\mpwidth}
 	\begin {center}
-		\HUGE{ \textbf{ \textcolor{white}{ Brandon P. DePalo } } } \\[-24pt]
-		\textcolor{white}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
-		\large{ \textcolor{white} {Full Stack Software Engineer} }
+		\HUGE{\textbf{\textcolor{white}{Brandon P. DePalo}}}\\[-20pt]
+		\textcolor{white}{\rule{0.5\textwidth}{1.25pt}}\\[6pt]
+		\large{\textcolor{white}{Senior Full-Stack Software Engineer}}
 	\end {center}
 \end{minipage}} \\[14pt]
 \vspace{-12pt}
@@ -620,158 +582,90 @@
 \cvsectionright{Work Experience}
 \vspace{4pt}
 
+% MITRE
 \cvevent
-	{06/2021 - Current}
-	{Software Engineer for Transportation Safety}
-	{MITRE}
-	{Aberdeen, MD}
-    {Working on various software projects supporting the FAA in its goal to increase aviation safety.}
-	{
-		{\cvproject
-			{IFP, Operations, and Analytics (IOAA) Tool}
-			{
-				\item Refactored existing Java codebase to use Gradle and proper object oriented design patterns for
-				extendability and reusability. Implemented unit testing
-				\item Containerized existing JavaScript frontend and refactored Java backend
-				\item Working on transitioning legacy frontend from deprecated tools and frameworks such as Bower and AngularJS
-				\item Implemented automated continuous integration / continuous deployment pipeline using GitHub Actions
-			}
-		}
-		{\cvproject
-			{Voice Data Analysis Capability Tech Transition}
-			{
-				\item Adjusted Java codebase to allow for automated data processing
-				\item Containerized existing voice transcription capability
-				\item Implemented automated continuous integration / continuous deployment pipeline using Bamboo specs
-				\item Deployed and scaled in AWS to process data in the FAA Enterprise Information Management (EIM) system
-			}
-		}
-		{\cvproject
-			{FAA-Recognized Identification Area (FRIA) Analysis Tool}
-			{
-				\item Leading a project to automate analysis and report generation for received FRIA applications
-			}
-		}
-	}
-	{Java | Python | PySpark | JavaScript | AngularJS | Angular | React | Node.js \newline Kafka | Avro | Docker |
-	Kubernetes | Helm | AWS | Rancher | Linux | Windows \newline IntelliJ | WebStorm | GitHub | BitBucket | Bamboo |
-	LaTex}
-	{}
+{06/2021 - Current}
+{Software Engineer for Transportation Safety}
+{MITRE}
+{Aberdeen, MD}
+{
+    \item Led a small team to develop a software tool for the FAA to analyze FAA- \\
+          Recognized Identification Area applications. \\
+          Frontend: React | Backend: Java/Spring | Database: Postgres
+	\item Improve and deploy software tool to analyze and visualize aviation data \\
+	      using advanced metrics. Architected next generation, cloud native version
+	      of the tool leveraging AWS RDS, S3, DynamoDB, and Lambda.\\
+	      Frontend: AngularJS | Backend: Java/Spring | Database: Phoenix/HBase
+    \item Performed analysis using Air Traffic Control voice audio files and big data
+    \item Modernized build processes for legacy applications using Gradle, Docker, \\
+          and CI/CD tools (GitHub Actions | Concourse | Rancher).
+    \item Deployed microservices and webapps on legacy Tomcat servers and AWS.
+}
 
+% Leidos
 \cvevent
-    {11/2016 - 06/2021}
-	{Software Engineer}
-	{Leidos}
-	{Edgewood, MD}
-	{Supported Army customer by designing and developing software to help the Chemical Biological Radiological
-		Nuclear (CBRN) Defense mission. Development done in Linux using IntelliJ IDEA and Android Studio.}
-	{
-		{\cvproject
-			{Lead developer: Parrot}
-			{
-				\item Developed a set of scalable Java software modules intended to bridge the Common CBRN
-				(Chemical Biological Radiological Nuclear) Sensor Interface (CCSI) to the Integrated Sensor Architecture
-				(ISA)
-				\item Developed Parrot from an initial prototype application into a framework for integrating CBRN
-				sensors with ISA.
-				\item Also developed modules to allow ISA data to be displayed on various Common Operating Pictures
-				(COPs)
-			}
-			}
-		{\newpage\cvproject
-			{UAV Autonomy Control Software / Flutter}
-			{
-				\item Modified old Python software to allow for autonomous control of a UAV by dropping a JSON file
-				into a specified directory. Automated JSON file creation based on chemical hazard detections.
-				\item After successful demonstration, it was decided to mature the software. A new Parrot module was
-				developed to run directly on the UAV hardware (Raspberry Pi / Nvidia TX2). This allowed the ability
-				to add new and more complex capabilities, and control the UAV directly over ISA. A simple Java GUI
-				was developed to send more advanced UAV commands.
-				\item An ISA plugin to the Android Tactical Assault Kit (ATAK) was obtained and extended to allow for
-				UAV control over ISA from an Android device. Using feedback from field demonstrations, the application
-				has continually been improved.
-				\item Demonstrated capability on various quad / hex copters, including Military and COTS
-			}
-			}
-		{\cvproject
-			{Joint CBRNE Advanced Capability Sets}
-			{
-				\item Developed a set of software and hardware for soldiers to wear when investigating CBRN hazards.
-				\item Developed an Android application to display current sensor readings and send reports to
-				commanders and upper echelons.
-				\item Designed and manufactured a prototype hardware dongle to connect sensors to a Nett Warrior
-				phone. The dongle was 3D printed; the board was custom designed using geppetto, and then manufactured
-				by gumstix. Custom connectors were ordered and the dongle was assembled by hand.
-				\item The dongle ran a custom built Linux based Yocto OS
-				\item Added OS level rules to control the software based on what sensor was attached
-			}
-		}
-	}
-	{Java | Python | Docker | IntelliJ | PyCharm | Linux | GitLab | Solidworks | JSON \newline Protobuf | CCSI | ISA |
-	CoT | ATAK | AndroidStudio | Android | Yocto}
-	{}
+{11/2016 - 06/2021}
+{Software Engineer}
+{Leidos}
+{Edgewood, MD}
+{
+	\item Developed integrated hardware / software solutions for the Army.
+	\item Built multiple custom UAS using COTS and 3D printed parts. Integrated \\
+	      sensor payloads with existing infrastructure using Java. Parse incoming \\
+		  commands and send controls to ArduPilot.
+	\item Visualized sensor data and enabled UAS control on existing Common \\
+	      Operating Pictures and Android handhelds devices.
+	\item Built a framework to rapidly integrate Chemical, Biological, and \\
+          Radiological sensor data over existing infrastructure.
+    \item Participated in field tests of system prototypes.
+}
 
+% Northrop Grumman
 \cvevent
-	{07/2015 - 11/2016}
-	{Systems Engineer PDP}
-	{Northrop Grumman}
-	{Baltimore, MD}
-	{Worked in a rotation program for new employees starting their careers.}
-	{
-		{\cvproject
-			{Rotation 1: System Security}
-			{
-				\item Worked with the Information Assurance team to support the quarterly system scans
-				\item Assisted the Anti-Tamper team to design system security architecture
-			}
-			}
-		{\cvproject
-			{Rotation 2: Software}
-			{
-				\item Planned automation of the sensor operator position with software that would manipulate an existing
-				GUI. The program had funding terminated in the early stages.
-				\item Worked on a middleware software that would translate and send messages between two pieces of hardware.
-			}
-			}
-		{\cvproject
-			{Rotation 3: Product Line Modeling}
-			{
-				\item Worked with Atego Artisan Studio to create models of existing firmware.
-			}
-		}
-	}
-	{C++ | Java | Eclipse}
-	{}
+{07/2015 - 11/2016}
+{Systems Engineer PDP}
+{Northrop Grumman}
+{Baltimore, MD}
+{
+	\item Worked with the Information Assurance team to complete system scans.
+	\item Assisted Anti-Tamper team by designing system security architectures.
+	\item Worked on C++ system to automate mission operator position.
+	\item Created a Java message to connect two pieces of hardware.
+	\item Worked with Atego Artisan Studio to create models of existing firmware.
+}
 
-\cvevent
-	{Summer 2013/14}
-	{Flight Systems Engineer Intern}
-	{Lockheed Martin}
-	{Greenbelt, MD}
-	{Worked on several software projects supporting the Hubble Space Telescope}
-	{
-		{\cvproject
-			{Fine Guidance Sensor Simulator Code Update}
-			{
-				\item A problem was discovered with the Fine Guidance Sensors on Hubble Space Telescope and needed to be
-				investigated.
-				\item Worked with engineers to develop an accurate model of the issue.
-				\item Modified simulator FORTRAN code to use the model. Verified accuracy of model by running scenarios
-				from past missions.
-				\item The model was used to predict the effects of the issue out to 2025
-			}
-			}
-		{\cvproject
-			{FGS-2R2 Coarse Track Nutation Convergence Study}
-			{
-				\item Performed a study to determine functionality of one of the Fine Guidance Sensors on the Hubble
-				Space Telescope that was causing issues when locating stars.
-				\item Presented findings at the end of the first internship.
-			}
-			}
-	}
-	{ Java | FORTRAN }
-	{}
+
+%	{Supported Army customer by designing and developing software to help the Chemical Biological Radiological
+%		Nuclear (CBRN) Defense mission.}
+%	{
+%		{\cvproject
+%			{Lead developer: Parrot}
+%			{
+%				\item Developed a set of scalable software modules to bridge data standards.
+%				\item Designed a framework to quickly integrate sensors to tactical networks.
+%				\item Developed modules to display live data on various Common Operating Pictures.
+%			}
+%			}
+%		{\cvproject
+%			{UAV Autonomy Control Software / Flutter}
+%			{
+%				\item Created software to task UAVs to investigate areas based on live sensor data.
+%				\item Developed software to run embedded on UAV hardware and allow for remote operation.
+%				\item Extended an Android Tactical Assault Kit (ATAK) plugin to control UAVs from an Android
+%				device.
+%			}
+%			}
+%		{\newpage\cvproject
+%			{Joint CBRNE Advanced Capability Sets}
+%			{
+%				\item Developed an Android application to display sensor readings and send reports.
+%				\item Designed and manufactured a prototype, 3D printed, hardware dongle with a custom
+%				board and OS.
+%			}
+%		}
+%	}
+%	{}
+%	{}
 
 \end{rightcolumn}
 \end{paracol}

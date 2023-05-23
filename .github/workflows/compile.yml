@@ -4,7 +4,7 @@ on:
     branches: [main]
 jobs:
   main:
-    name: Build Main Resume
+    name: Build Resume
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -12,24 +12,9 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: bdepalo-resume.tex
+          root_file: op-resume.tex
       - name: Upload Resume
         uses: actions/upload-artifact@v3
         with:
           name: Resume
-          path: bdepalo-resume.pdf
-  short:
-    name: Build Short Resume
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: bdepalo-short-resume.tex
-      - name: Upload Resume
-        uses: actions/upload-artifact@v3
-        with:
-          name: Short Resume
-          path: bdepalo-short-resume.pdf
+          path: op-resume.pdf

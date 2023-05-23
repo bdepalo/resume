@@ -1,22 +1,10 @@
 ---
 version: "3"
 services:
-
-  short_build:
-    container_name: short_latex_build
+  op:
+    container_name: op_latex_build
     image: leplusorg/latex
     volumes:
       - .:/data
-    entrypoint: ["pdflatex", "--enable-write18 ", "bdepalo-short-resume.tex"]
-#    entrypoint: [ "/bin/bash" ]
-#    entrypoint: "cd /data && pdflatex --enable-write18 bdepalo-short-resume.tex"
-    working_dir: "/data"
-
-
-  long_build:
-    container_name: long_latex_build
-    image: leplusorg/latex
-    volumes:
-      - .:/data
-    entrypoint: ["pdflatex", "--enable-write18 ", "bdepalo-resume.tex"]
+    entrypoint: [ "pdflatex", "--enable-write18 ", "op-resume.tex" ]
     working_dir: "/data"
